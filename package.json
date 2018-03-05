@@ -1,0 +1,40 @@
+{
+  "name": "generator-bipbop-tdd",
+  "version": "1.0.0",
+  "description": "A generator for Yeoman to scanfoold a BIPBOP JS project.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/bipbop/js-generator-bipbop-tdd.git"
+  },
+  "keywords": [
+    "generator-bipbop-tdd"
+  ],
+  "author": "lf.amorim@bipbop.com.br",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/bipbop/js-generator-bipbop-tdd/issues"
+  },
+  "files": [
+    "static/utils/rollup-generator.js",
+    "static/LICENSE",
+    "static/lib/index.js",
+    "static/banner.txt",
+    "static/gulpfile.js",
+    "static/karma.conf.js",
+    "static/tests/index.spec.js",
+    "static/.travis.yml",
+    "static/.eslintrc.js"
+  ],
+  "homepage": "https://github.com/bipbop/js-generator-bipbop-tdd#readme",
+  "devDependencies": {
+    "eslint": "^4.18.2"
+  },
+  "dependencies": {
+    "yeoman-generator": "^2.0.3",
+    "yosay": "^2.0.1"
+  }
+}
