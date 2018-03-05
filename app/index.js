@@ -7,7 +7,7 @@ module.exports = class GeneratorBIPBOPTDD extends Generator {
     return this.prompt([{
       type: 'input',
       name: 'name',
-      message: 'Your library name',
+      message: 'Your library name:',
       default: this.appname, // Default to current folder name
     }, {
       type: 'list',
@@ -21,8 +21,7 @@ module.exports = class GeneratorBIPBOPTDD extends Generator {
     }, {
       type: 'input',
       name: 'description',
-      validate: isVarName,
-      message: 'Describe the purpose',
+      message: 'Describe the purpose:',
     }]).then((props) => {
       const { name } = props;
       this.props = Object.assign(props, {
@@ -34,8 +33,40 @@ module.exports = class GeneratorBIPBOPTDD extends Generator {
     });
   }
 
+  install() {
+    this.installDependencies({
+      npm: false,
+      bower: false,
+      yarn: true,
+    });
+  }
+
   writing() {
-    this.fs.copy(this.templatePath('static/**'), this.destinationPath('.'));
-    this.fs.copyTpl(this.templatePath('dynamic/**'), this.destinationPath('.'), this.props);
+    /* Dynamic */
+    [
+      'lib/index.js',
+      'gulpfile.js',
+      'tests/library.spec.js',
+      'package.json',
+    ].forEach(file => this.fs.copyTpl(
+      this.templatePath(file),
+      this.destinationPath(file), this.props,
+    ));
+
+    /* Static */
+    [
+      './.eslintignore',
+      './utils/rollup-generator.js',
+      './LICENSE',
+      './banner.txt',
+      './karma.conf.js',
+      './tests/.eslintignore',
+      './tests/.eslintrc.js',
+      './.travis.yml',
+      './.eslintrc.js',
+    ].forEach(file => this.fs.copy(
+      this.templatePath(file),
+      this.destinationPath(file),
+    ));
   }
 };

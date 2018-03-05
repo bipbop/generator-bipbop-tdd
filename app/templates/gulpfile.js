@@ -26,7 +26,7 @@ gulp.task('pack:test', () => rollupBundle(testConfig)
   .then(bundle => bundle.write({
     format: 'umd',
     exports: 'default',
-    name: pkg.name,
+    name: '<%= functionName %>',
     extend: true,
     file: path.join(__dirname, 'tests', 'coverage', 'index.js'),
   })));

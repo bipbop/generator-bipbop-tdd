@@ -30,6 +30,8 @@
   "homepage": "https://github.com/bipbop/js-generator-bipbop-tdd#readme",
   "devDependencies": {
     "eslint": "^4.18.2",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
     "yo": "^2.0.1"
   },
   "dependencies": {
