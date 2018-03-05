@@ -20,13 +20,16 @@ This package is provided in these module formats:
 
 ## Dependencies
 
+- [chalk](): 
+- [change-case](): 
+- [is-valid-var-name](https://github.com/SteveWestbrook/is-valid-var-name): Determines whether a string is a valid javascript variable name.  ES2015 and ES5 compatibility.  Strict mode evaluation by default.
 - [yeoman-generator](): 
-- [yosay](): 
 
 
 ## Dev Dependencies
 
 - [eslint](): 
+- [yo](): 
 
 
 ## License

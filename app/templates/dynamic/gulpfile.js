@@ -26,7 +26,7 @@ gulp.task('pack:test', () => rollupBundle(testConfig)
   .then(bundle => bundle.write({
     format: 'umd',
     exports: 'default',
-    name: 'index',
+    name: pkg.name,
     extend: true,
     file: path.join(__dirname, 'tests', 'coverage', 'index.js'),
   })));
@@ -35,7 +35,7 @@ gulp.task('pack:cjs', () => rollupBundle(productionConfig)
   .then(bundle => bundle.write({
     format: 'cjs',
     exports: 'default',
-    name: 'index',
+    name: '<%= functionName %>',
     extend: true,
     file: path.join(__dirname, pkg.main),
   })));
@@ -44,7 +44,7 @@ gulp.task('pack:umd', () => rollupBundle(productionConfig)
   .then(bundle => bundle.write({
     format: 'umd',
     exports: 'default',
-    name: 'index',
+    name: '<%= functionName %>',
     extend: true,
     file: path.join(__dirname, pkg.browser),
   })));
